@@ -32,7 +32,7 @@ public class AuthProviderImpl1 implements AuthenticationProvider {
         }
 
         return new UsernamePasswordAuthenticationToken(
-                username,
+                personDetails,
                 password,
                 Collections.emptyList());
 
