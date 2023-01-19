@@ -1,23 +1,28 @@
 package com.BootTraining.SecurityApp.config;
 
-import com.BootTraining.SecurityApp.security.AuthProviderImpl1;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.BootTraining.SecurityApp.services.PersonDetailService;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private final AuthProviderImpl1 authProviderImpl1;
+    private final PersonDetailService personDetailService;
 
-    @Autowired
-    public SecurityConfig(AuthProviderImpl1 authProviderImpl1) {
-        this.authProviderImpl1 = authProviderImpl1;
+    public SecurityConfig(PersonDetailService personDetailService) {
+        this.personDetailService = personDetailService;
     }
 
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception{
+        auth.userDetailsService(personDetailService);
+    }
 
-    protected void configure(AuthenticationManagerBuilder auth){
-        auth.authenticationProvider(authProviderImpl1);
+    @Bean
+    public PasswordEncoder getPasswordEncoder(){
+        return NoOpPasswordEncoder.getInstance();
     }
 }
