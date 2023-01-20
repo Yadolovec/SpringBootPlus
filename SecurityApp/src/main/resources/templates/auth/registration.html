@@ -9,21 +9,22 @@
         <label for="username">Enter username</label>
         <br/>
         <input id="username" th:field="*{username}" type="text" />
-        <div style="color: red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">username</div>
+        <a style="color: red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">username</a>
 
+        <br/>
 
 
         <label for="yearOfBirth">Enter year of birth</label>
         <br/>
         <input id="yearOfBirth" th:field="*{yearOfBirth}" type="text" />
-        <div style="color: red" th:if="${#fields.hasErrors('yearOfBirth')}" th:errors="*{yearOfBirth}">yearOfBirth</div>
-
+        <a style="color: red" th:if="${#fields.hasErrors('yearOfBirth')}" th:errors="*{yearOfBirth}">yearOfBirth</a>
+        <br/>
 
 
         <label for="password">Enter password</label>
         <br/>
         <input id="password" th:field="*{password}" type="password" />
-        <div style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">password</div>
+        <a style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">password</a>
 
         <br/>
         <input type="submit" value="Sign up!"/>
