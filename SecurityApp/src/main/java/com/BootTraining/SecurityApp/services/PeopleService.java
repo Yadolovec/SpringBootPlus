@@ -29,6 +29,7 @@ public class PeopleService {
 
     @Transactional
     public void register(Person person){
+        person.setRole("ROLE_USER");
         person.setPassword(passwordEncoder.encode(person.getPassword()));
 
         peopleRepository.save(person);

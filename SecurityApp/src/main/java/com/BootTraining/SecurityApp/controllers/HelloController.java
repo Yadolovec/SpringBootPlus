@@ -22,9 +22,9 @@ public class HelloController {
         return "hello";
     }
 
-    @GetMapping("/error")
-    public String error(){
-        return "hello";
+    @GetMapping("/admin")
+    public String adminPager(){
+        return "admin";
     }
 
 }
