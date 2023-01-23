@@ -11,7 +11,7 @@ import java.util.*;
 
 public class Consumer {
     public static void main(String[] args) throws JsonProcessingException {
-        //GET SIMPLE REST JSON
+//        GET SIMPLE REST JSON
 //        RestTemplate restTemplate = new RestTemplate();
 //        String url = "https://reqres.in/api/users?page=2";
 //        String s = restTemplate.getForObject(url, String.class);
