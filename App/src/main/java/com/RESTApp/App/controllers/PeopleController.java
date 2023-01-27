@@ -39,6 +39,7 @@ public class PeopleController {
 
     @GetMapping("/{id}")
     public PersonDTO getPerson(@PathVariable("id") int id){
+
         return convertToDTO(peopleService.findOne(id));
     }
 

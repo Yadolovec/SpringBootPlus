@@ -48,11 +48,11 @@ public class Consumer {
         
 
         //MADE CLASSES FOR JSON (IN classesForJson)
-//        RestTemplate restTemplate = new RestTemplate();
-//        String url = "https://reqres.in/api/unknown";
-//        Resources resources = restTemplate.getForObject(url, Resources.class);
-//
-//        System.out.println(resources.getData().get(4).getName());
+        RestTemplate restTemplate = new RestTemplate();
+        String url = "https://reqres.in/api/unknown";
+        Resources resources = restTemplate.getForObject(url, Resources.class);
+
+        System.out.println(resources.getData().get(4).getName());
 
     }
 }
