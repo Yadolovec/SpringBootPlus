@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import com.some.app.EmptyApp.security.PersonDetails;
 import com.some.app.EmptyApp.services.AdminService;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * @author Neil Alishev
@@ -26,12 +27,12 @@ public class HelloController {
     }
 
     @GetMapping("/showUserInfo")
+    @ResponseBody
     public String showUserInfo() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         PersonDetails personDetails = (PersonDetails) authentication.getPrincipal();
-        System.out.println(personDetails.getPerson());
 
-        return "hello";
+        return personDetails.getUsername();
     }
 
     @GetMapping("/admin")
